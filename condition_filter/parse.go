@@ -5,6 +5,8 @@ import (
 	"strings"
 
 	"github.com/golang/glog"
+
+	"fmt"
 )
 
 const (
@@ -185,6 +187,7 @@ func buildRPNStack(c string) ([]interface{}, error) {
 	for j := len(s1) - 1; j > 0; j-- {
 		s2 = append(s2, s1[j])
 	}
+	fmt.Println(s2)
 
 	return s2, nil
 }

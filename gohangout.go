@@ -159,7 +159,8 @@ func main() {
 	if err != nil {
 		glog.Fatalf("build plugin link error: %v", err)
 	}
-	inputs = gohangoutInputs(boxes)
+	//inputs = gohangoutInputs(boxes)
+	inputs = boxes
 	go inputs.start()
 
 	go func() {
@@ -167,7 +168,7 @@ func main() {
 			inputs.stop()
 			boxes, err := buildPluginLink(cfg)
 			if err == nil {
-				inputs = gohangoutInputs(boxes)
+				inputs = boxes
 				go inputs.start()
 			} else {
 				glog.Errorf("build plugin link error: %v", err)
